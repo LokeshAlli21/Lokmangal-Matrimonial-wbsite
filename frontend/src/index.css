@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@layer base {
+
+    html {
+        overflow-x: hidden;
+    }
+
+    body {
+        background: rgb(251, 248, 237);
+        overflow-x: hidden !important;
+        background-image: linear-gradient(135deg, #fdfcfb 0%, rgb(255 251 238) 100%);
+        background-attachment: fixed;
+    }
+
+    * {
+        @apply m-0 p-0 box-border border-0 align-baseline;
+        font-family: var(--font-family);
+        color: var(--text-color);
+        font-weight: 400;
+    }
+
+    h1, h2, h3, h4, h5, h6, p, a, span, li, label, tr, td, 
+    article, aside, details, figcaption, figure, footer, 
+    header, hgroup, main, menu, nav, summary, input, textarea, select {
+        font-family: var(--font-family);
+        font-weight: 400;
+        color: var(--text-color);
+    }
+
+    @media screen and (max-width: 1100px) {
+        :root {
+            --mtop: 70px;
+        }
+    }
+
+    @media screen and (max-width: 992px) {
+        :root {
+            --mtop: 61px;
+        }
+    }
+
+    @media screen and (max-width: 769px) {
+        :root {
+            --mtop: 50px;
+        }
+    }
+
+    h1, h1 b, h2, h2 span {
+        font-family: var(--tit-font);
+    }
+
+    a {
+        transition: all 0.5s ease 0s;
+        text-decoration: none;
+    }
+
+    a:hover {
+        transition: all 0.5s ease 0s;
+        text-decoration: none;
+    }
+
+    ul {
+        padding: 0px;
+        margin: 0px;
+        list-style: none;
+    }
+
+    li {
+        list-style-type: none;
+    }
+
+    blockquote, q {
+        quotes: none;
+    }
+
+    blockquote::before, blockquote::after, q::before, q::after {
+        content: none;
+    }
+
+    table {
+        border-collapse: collapse;
+        border-spacing: 0px;
+    }
+
+    img {
+        max-width: 100%;
+        object-fit: cover;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+}
