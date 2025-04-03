@@ -1,9 +1,9 @@
 import Home from './Home'
-import Login from './Login'
-import SignUp from './SignUp'
+import LoginPage from './LoginPage'
+import SignUpPage from './SignUpPage'
 
 export {
     Home,
-    Login,
-    SignUp,
+    LoginPage,
+    SignUpPage,
 }

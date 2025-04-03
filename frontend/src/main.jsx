@@ -3,7 +3,10 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { Home, Login, SignUp } from './pages/index.js'
+import { Home, LoginPage, SignUpPage } from './pages/index.js'
+import { Provider } from 'react-redux'
+import store from './store/store.js'
+import AuthLayout from './components/AuthLayout.jsx'
 
 // path: "/login",
 //           element: (
@@ -24,21 +27,27 @@ const router = createBrowserRouter([
         {
           path: "/login",
           element: (
-                  <Login />
+              <AuthLayout authentication={false}>
+                  <LoginPage />
+              </AuthLayout>
           ),
-      },
-      {
+        },
+        {
           path: "/signup",
           element: (
-                  <SignUp />
+              <AuthLayout authentication={false}>
+                  <SignUpPage  />
+              </AuthLayout>
           ),
-      },
+        },
     ],
-},
+  },  
 ])
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store} >
+      <RouterProvider router={router} />
+    </Provider>
   </StrictMode>,
 )

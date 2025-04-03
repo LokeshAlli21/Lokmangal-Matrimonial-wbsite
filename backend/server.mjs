@@ -3,72 +3,130 @@ import cors from "cors";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 
-dotenv.config(); // Load environment variables from .env
+dotenv.config(); // ✅ Load environment variables from .env
 
 const app = express();
-const SECRET_KEY = process.env.JWT_SECRET || "your_super_secret_key"; // ✅ Use env or fallback // key-1234
+const SECRET_KEY = process.env.JWT_SECRET || "your_super_secret_key"; // ✅ Secure JWT Key
 
+// ✅ Middleware - Enables CORS for frontend communication
 app.use(
   cors({
-    origin: process.env.FRONTEND_ORIGIN_URL,
+    origin: process.env.FRONTEND_ORIGIN_URL || "http://localhost:5173",
     methods: "GET,POST",
     credentials: true,
   })
 );
 
-app.use(express.json());
+app.use(express.json()); // ✅ Middleware - Parse JSON request body
 
-// ✅ Login Route - Generates JWT Token
-// app.post("/api/login", (req, res) => {
-//   const { username } = req.body;
-  
-//   if (!username) return res.status(400).json({ message: "Username required" });
+const users = []; // ✅ Temporary user storage (Replace with database in production)
 
-//   const user = { id: 1, username }; // Mock user
-//   const token = jwt.sign(user, SECRET_KEY, { expiresIn: "10h" });
+// ✅ Register Route - Creates a new user and returns a JWT token
+app.post("/api/register", (req, res) => {
+  console.log("➡️  Register Request Received"); // Log request
+  const { email, password, name } = req.body;
 
-//   res.json({ message: "Login successful", token });
-// });
+  // ✅ Check if all required fields are provided
+  if (!email || !password || !name) {
+    console.log("❌ Registration Failed: Missing fields");
+    return res.status(400).json({ message: "All fields are required" });
+  }
 
+  // ✅ Check if user already exists
+  const existingUser = users.find((user) => user.email === email);
+  if (existingUser) {
+    console.log(`❌ Registration Failed: User with email ${email} already exists`);
+    return res.status(400).json({ message: "User already exists" });
+  }
 
+  // ✅ Create a new user
+  const newUser = { id: users.length + 1, email, password, name };
+  users.push(newUser);
+  console.log(`✅ User Registered: ${email}`);
+
+  // ✅ Generate JWT Token
+  const token = jwt.sign({ id: newUser.id, email }, SECRET_KEY, { expiresIn: "7d" });
+  console.log(`🔑 JWT Token Generated for ${email}`);
+
+  res.json({ message: "Registration successful", token });
+});
+
+// ✅ Login Route - Authenticates user and returns JWT Token
 app.post("/api/login", (req, res) => {
-  const { username } = req.body;
+  console.log("➡️  Login Request Received"); // Log request
+  const { email, password } = req.body;
 
-  if (!username) return res.status(400).json({ message: "Username required" });
+  // ✅ Check if all required fields are provided
+  if (!email || !password) {
+    console.log("❌ Login Failed: Missing email or password");
+    return res.status(400).json({ message: "Email and password required" });
+  }
 
-  const user = { id: 1, username }; // Mock user // //////////////////////////////////////////////////
-  const token = jwt.sign(user, SECRET_KEY, { expiresIn: "7d" });
+  // ✅ Find user in database
+  const user = users.find((user) => user.email === email && user.password === password);
+  if (!user) {
+    console.log(`❌ Login Failed: Invalid credentials for ${email}`);
+    return res.status(401).json({ message: "Invalid credentials" });
+  }
 
-  console.log("Generated Token:", token); // Debugging
+  // ✅ Generate JWT Token
+  const token = jwt.sign({ id: user.id, email }, SECRET_KEY, { expiresIn: "7d" });
+  console.log(`✅ Login Successful: JWT Token Issued for ${email}`);
+
   res.json({ message: "Login successful", token });
 });
 
-
-// ✅ Protected Route - Requires JWT
-app.get("/api/protected", (req, res) => {
+// ✅ Get Current User - Requires JWT Authentication
+app.get("/api/user", (req, res) => {
+  console.log("➡️  Fetch User Request Received"); // Log request
   const token = req.headers.authorization?.split(" ")[1];
 
-  if (!token) return res.status(401).json({ message: "Unauthorized" });
+  // ✅ Check if token is provided
+  if (!token) {
+    console.log("❌ Unauthorized: No token provided");
+    return res.status(401).json({ message: "Unauthorized" });
+  }
 
   try {
+    // ✅ Verify JWT Token
     const user = jwt.verify(token, SECRET_KEY);
-    res.json({ message: "Protected data", user });
+    console.log(`✅ User Data Retrieved: ${user.email}`);
+    res.json({ id: user.id, email: user.email });
   } catch (err) {
+    console.log("❌ Invalid Token Attempt");
     res.status(403).json({ message: "Invalid token" });
   }
 });
 
-// ✅ Test Route
-app.get("/", (req, res) => {
-  res.json({ message: "The backend for Lokmangal-Matrimonial-website is working fine!" });
+// ✅ Logout Route (Handled by frontend clearing the token)
+app.post("/api/logout", (req, res) => {
+  console.log("➡️  Logout Request Received");
+  res.json({ message: "Logged out successfully" });
 });
 
-// ✅ Sample API Endpoint
-app.get("/api/test", (req, res) => {
-  console.log("Request Headers:", req.headers);
-  res.json({ message: "Backend is working!", icons: ["phone", "email", "facebook"] });
+// ✅ Protected Route - Requires JWT Authentication
+app.get("/api/protected", (req, res) => {
+  console.log("➡️  Protected Route Accessed"); // Log request
+  const token = req.headers.authorization?.split(" ")[1];
+
+  // ✅ Check if token is provided
+  if (!token) {
+    console.log("❌ Unauthorized: No token provided");
+    return res.status(401).json({ message: "Unauthorized" });
+  }
+
+  try {
+    // ✅ Verify JWT Token
+    const user = jwt.verify(token, SECRET_KEY);
+    console.log(`✅ Access Granted for: ${user.email}`);
+    res.json({ message: "Protected data accessed", user });
+  } catch (err) {
+    console.log("❌ Invalid Token Attempt");
+    res.status(403).json({ message: "Invalid token" });
+  }
 });
+
 
 // ✅ Start Server
 const PORT = 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
