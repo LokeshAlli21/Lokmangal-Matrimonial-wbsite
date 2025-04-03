@@ -6,28 +6,41 @@ import Icons from "../icons/Icons";
 function NavBar() {
   return (
     <div
-      className="p-4 w-full bg-white shadow-md float-left transition-all duration-400 ease-in-out absolute z-3 before:content-[''] before:fixed before:top-[125px] before:left-0 
-before:w-[188px] before:h-[188px] 
-before:bg-[url('/images/leaf/5.png')] before:bg-no-repeat 
-before:bg-[length:300px] before:bg-[position:-78px_-70px] before:box-border;
-after:content-[''] after:fixed after:bottom-0 after:right-0 
-after:w-[123px] after:h-[300px] 
-after:bg-[url('/images/leaf/8.png')] after:bg-no-repeat 
-after:bg-[length:121px] after:bg-[position:center_right] after:box-border;
+      className="absolute z-3 w-full py-[15px] bg-white shadow-md float-left transition-all duration-400 ease-in-out
+    before:content-[''] before:fixed before:top-[125px] before:left-0 
+    before:w-[188px] before:h-[188px] 
+    before:bg-[url('/images/leaf/5.png')] before:bg-no-repeat 
+    before:bg-[length:300px] before:bg-[position:-78px_-70px] before:box-border
 
-"
+    after:content-[''] after:fixed after:bottom-0 after:right-0 
+    after:w-[123px] after:h-[300px] 
+    after:bg-[url('/images/leaf/8.png')] after:bg-no-repeat 
+    after:bg-[length:121px] after:bg-[position:center_right] after:box-border "
     >
       <Container noBackground noPaddingY>
-        <nav className="flex items-center justify-between py-4">
+        <nav className=" items-center  px-3 flex-wrap -mx-3 mt-0">
           {/* Logo */}
-          <div>
+          {/* <div>
             <Link to="/">
               <Logo width="70px" logoPath={"/sample-logo.png"} />
             </Link>
-          </div>
+          </div> */}
+
+                      <div class="logo left-0 justify-between flex items-center float-left w-72">        
+                      <div class="menu relative block text-center text-[25px] w-10 h-10 cursor-pointer bg-yellow-500 rounded-full 
+                      z-10 ping
+                      ">
+                          <i class="absolute w-5 h-[2px] bg-white left-[10px] top-[11px] transition-all
+                          w-5 h-0.5 inline-block float-left top-[0.69rem] left-[0.63rem] absolute cursor-pointer"></i>
+                          <i class="absolute w-5 h-[2px] bg-white left-[10px] top-[18px] scale-100 transition-all"></i>
+                          <i class="absolute w-5 h-[2px] bg-white left-[10px] top-[25px] transition-all"></i>
+                      </div>
+                        <a href="https://shadi.lokmangal.website/" class="logo-brand">
+                        <img src="https://shadi.lokmangal.website/assets/images/lokmangal-foundation.png" alt="" loading="lazy" class="ic-logo"/></a>
+                    </div>
 
           {/* Navigation */}
-          <ul className="flex space-x-6 relative">
+          <ul className="flex space-x-4 relative items-center justify-center  m-0 w-[calc(100%_-_450px)] float-left py-0  px-10">
             {/* Explore Menu */}
             <li className="relative group">
               <span className="cursor-pointer font-medium text-sm leading-[40px]  uppercase hover:text-gray-600 flex items-center">
@@ -36,7 +49,7 @@ after:bg-[length:121px] after:bg-[position:center_right] after:box-border;
               </span>
               {/* Dropdown */}
               <div
-                className="fixed w-full left-0 top-[90px] p-[30px] bg-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 absolute left-[-14px] top-[30px] py-[10px] shadow-[0_14px_11px_1px_rgba(0,0,0,0.06)] rounded-[5px] ease-in-out translate-y-[20px] origin-top scale-0 group-hover:scale-100 group-hover:translate-y-0
+                className="fixed w-full top-[90px] p-[30px] bg-white shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 absolute left-[-14px] top-[30px] py-[10px] shadow-[0_14px_11px_1px_rgba(0,0,0,0.06)] rounded-[5px] ease-in-out translate-y-[20px] origin-top scale-0 group-hover:scale-100 group-hover:translate-y-0
               
               
               
