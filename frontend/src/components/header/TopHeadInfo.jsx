@@ -1,9 +1,6 @@
 import React from "react";
 import { Container } from "../index";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch,faPhone, } from "@fortawesome/free-solid-svg-icons";
-import "@fortawesome/fontawesome-free/css/all.min.css";
-
+import Icons from "../icons/Icons";
 
 function TopHeadInfo() {
   return (
@@ -21,10 +18,7 @@ function TopHeadInfo() {
                 href="#!"
                 className="inline-block text-[rgb(234,_208,_176)] font-[1000] border-r border-r-white/20 px-[15px] uppercase py-[5px]"
               >
-                <FontAwesomeIcon
-                  icon={faSearch}
-                  className=" text-[14px] box-border  antialiased [font:normal_normal_normal_14px_/_1_FontAwesome]"
-                />
+                <Icons.MagnifyingGlass className="text-[14px] box-border  antialiased [font:normal_normal_normal_14px_/_1_FontAwesome]" />
               </a>
             </li>
             <li>
@@ -63,7 +57,7 @@ function TopHeadInfo() {
 "
                 href="tel:+919923404583"
               >
-                <FontAwesomeIcon icon={faPhone} />
+                <Icons.Phone className="mr-1" />
                 &nbsp;+919923404583
               </a>
             </li>
@@ -73,8 +67,8 @@ function TopHeadInfo() {
                 className="inline-block text-[rgb(234,208,176)] text-[11px] font-medium border-r border-r-white/20 px-[15px] py-[10px] uppercase
 "
               >
-                <i class="fa-regular fa-envelope"></i>&nbsp;
-                lokmangalgroups@gmail.com
+                <Icons.Envelope className="mr-1" />
+                &nbsp; lokmangalgroups@gmail.com
               </a>
             </li>
             <li>
@@ -84,8 +78,7 @@ function TopHeadInfo() {
                 target="_blank"
                 href="https://www.facebook.com/lokmangalfoundation/"
               >
-
-                <i class="fa-brands fa-facebook-f " aria-hidden="true"></i>
+                <Icons.Facebook />
               </a>
             </li>
             <li>
@@ -95,7 +88,7 @@ function TopHeadInfo() {
                 target="_blank"
                 href="https://twitter.com/LokmangalFound"
               >
-                <i className="fa-brands fa-twitter" aria-hidden="true"></i>
+                <Icons.Twitter />
               </a>
             </li>
             <li>
@@ -105,8 +98,7 @@ function TopHeadInfo() {
                 target="_blank"
                 href="https://www.youtube.com/channel/UCk4QgXC_Qr6UtkHx9Tbm8yA?view_as=subscriberv"
               >
-                <i class="fa-brands fa-youtube" aria-hidden="true"></i>
-
+                <Icons.YouTube />
               </a>
             </li>
           </ul>
