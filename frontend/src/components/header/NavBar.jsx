@@ -18,15 +18,12 @@ function NavBar() {
 
   return (
     <div
-  className={`z-3 w-full py-[15px] bg-white shadow-md float-left 
+  className={`z-3 w-full  py-[15px] bg-white shadow-md float-left 
     before:content-[''] before:fixed before:top-[125px] before:left-0 
     before:w-[188px] before:h-[188px] before:bg-[length:300px] before:bg-[position:-78px_-77px]
     before:bg-[url('/images/leaf/5.png')]  before:box-border before:z-50
-
       
     before:bg-[url('/images/leaf/5.png')] before:bg-no-repeat 
-
-
     /* Max-width: 1100px */
     max-[1450px]:before:w-[140px] max-[1450px]:before:h-[123px] max-[1450px]:before:bg-[length:190px] max-[1450px]:before:bg-[position:-33px_-43px]
 
@@ -69,7 +66,7 @@ function NavBar() {
                           <i class="absolute w-5 h-[2px] bg-white left-[10px] top-[25px] transition-all"></i>
                       </div>
                         <a href="https://shadi.lokmangal.website/" class="logo-brand ml-10">
-                        <img src="https://shadi.lokmangal.website/assets/images/lokmangal-foundation.png" alt="" loading="lazy" class="ic-logo"/></a>
+                        <img src="/logo.png" alt="" loading="lazy" class="ic-logo min-h-13"/></a>
                     </div>
 
           {/* Navigation */}
