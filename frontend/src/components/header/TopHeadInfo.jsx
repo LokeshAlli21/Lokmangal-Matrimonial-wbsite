@@ -24,7 +24,7 @@ function TopHeadInfo() {
             <li>
               <a
                 href="about.html"
-                className="inline-block text-[rgb(234,208,176)] text-[11px] font-medium border-r border-r-white/20 px-[15px] py-[10px] uppercase
+                className="inline-block text-[rgb(234,208,176)] text-[11px] font-sans font-medium border-r border-r-white/20 px-[15px] py-[10px] uppercase
 "
               >
                 About
@@ -33,7 +33,7 @@ function TopHeadInfo() {
             <li>
               <a
                 href="faq.html"
-                className="inline-block text-[rgb(234,208,176)] text-[11px] font-medium border-r border-r-white/20 px-[15px] py-[10px] uppercase
+                className="inline-block text-[rgb(234,208,176)] text-[11px] font-sans font-medium border-r border-r-white/20 px-[15px] py-[10px] uppercase
 "
               >
                 FAQ
@@ -42,7 +42,7 @@ function TopHeadInfo() {
             <li>
               <a
                 href="contact.html"
-                className="inline-block text-[rgb(234,_208,_176)] text-[11px] font-medium px-[15px] py-[10px] uppercase"
+                className="inline-block text-[rgb(234,_208,_176)] text-[11px] font-sans font-medium px-[15px] py-[10px] uppercase"
               >
                 Contact
               </a>
@@ -53,7 +53,7 @@ function TopHeadInfo() {
           <ul className="float-right flex items-centerflex-row w-full justify-end">
             <li>
               <a
-                className="inline-block text-[rgb(234,208,176)] text-[11px] font-medium border-r border-r-white/20 px-[15px] py-[10px] uppercase
+                className="inline-block text-[rgb(234,208,176)] text-[11px] font-sans font-medium border-r border-r-white/20 px-[15px] py-[10px] uppercase
 "
                 href="tel:+919923404583"
               >
@@ -64,16 +64,16 @@ function TopHeadInfo() {
             <li>
               <a
                 href="mailto:lokmangalgroups@gmail.com"
-                className="inline-block text-[rgb(234,208,176)] text-[11px] font-medium border-r border-r-white/20 px-[15px] py-[10px] uppercase
+                className="inline-block text-[rgb(234,208,176)] text-[11px] font-sans font-medium border-r border-r-white/20 px-[15px] py-[10px] uppercase
 "
               >
-                <Icons.Envelope className="mr-1" />
+                <Icons.Envelope className="mr-1 font-medium" />
                 &nbsp; lokmangalgroups@gmail.com
               </a>
             </li>
             <li>
               <a
-                className="inline-block text-[rgb(234,208,176)] text-[11px] font-medium border-r border-r-white/20 px-[15px] py-[10px] uppercase
+                className="inline-block text-[rgb(234,208,176)] text-[11px] font-sans font-medium border-r border-r-white/20 px-[15px] py-[10px] uppercase
 "
                 target="_blank"
                 href="https://www.facebook.com/lokmangalfoundation/"
@@ -83,7 +83,7 @@ function TopHeadInfo() {
             </li>
             <li>
               <a
-                className="inline-block text-[rgb(234,208,176)] text-[11px] font-medium border-r border-r-white/20 px-[15px] py-[10px] uppercase
+                className="inline-block text-[rgb(234,208,176)] text-[11px] font-sans font-medium border-r border-r-white/20 px-[15px] py-[10px] uppercase
 "
                 target="_blank"
                 href="https://twitter.com/LokmangalFound"
@@ -93,7 +93,7 @@ function TopHeadInfo() {
             </li>
             <li>
               <a
-                className="inline-block text-[rgb(234,_208,_176)] text-[11px] font-medium
+                className="inline-block text-[rgb(234,_208,_176)] text-[11px] font-sans font-medium
  px-[15px] py-[10px] uppercase"
                 target="_blank"
                 href="https://www.youtube.com/channel/UCk4QgXC_Qr6UtkHx9Tbm8yA?view_as=subscriberv"

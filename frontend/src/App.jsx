@@ -59,10 +59,10 @@ function App() {
   return loading ? (
     <LoadingScreen />
   ) : (
-    <div className="min-h-screen flex flex-col justify-between bg-zinc-500">
+    <div className="min-h-screen flex flex-col justify-between bg-white">
       <div className="w-full">
         <Header />
-        <main className="flex-grow p-4">
+        <main className="flex-grow">
           <Outlet />
         </main>
         <Footer />

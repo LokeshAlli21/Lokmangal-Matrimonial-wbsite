@@ -15,8 +15,7 @@
 
     * {
         @apply m-0 p-0 box-border border-0 align-baseline;
-        font-family: var(--font-family);
-        color: var(--text-color);
+        font-family: Poppins, sans-serif;
         font-weight: 400;
     }
 
@@ -91,6 +90,76 @@
     .form-group {
         margin-bottom: 1rem;
     }
+
+    :root {
+        --bs-gutter-x: 1.5rem; /* Default Bootstrap gutter */
+      }
+      
+      .container {
+        width: 100%;
+        padding-right: var(--bs-gutter-x, 1.5rem);
+        padding-left: var(--bs-gutter-x, 1.5rem);
+        margin-right: auto;
+        margin-left: auto;
+      }
+      
+      @media (min-width: 576px) {
+        .container {
+          max-width: 540px;
+        }
+      }
+      
+      @media (min-width: 768px) {
+        .container {
+          max-width: 720px;
+        }
+      }
+      
+      @media (min-width: 992px) {
+        .container {
+          max-width: 960px;
+        }
+      }
+      
+      @media (min-width: 1200px) {
+        .container {
+          max-width: 1140px;
+        }
+      }
+      
+      @media (min-width: 1400px) {
+        .container {
+          max-width: 1320px;
+        }
+      }
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 
