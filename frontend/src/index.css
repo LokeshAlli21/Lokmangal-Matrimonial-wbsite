@@ -128,13 +128,13 @@
 @keyframes load {
     0% {
         background: rgb(246, 175, 4);
-        box-shadow: rgba(246, 175, 4, 0) 0px 0px 0px 0px;
+        box-shadow: rgba(246, 175, 4, 1) 0px 0px 0px 0px;
     }
     
     70% {
         background: rgb(246, 175, 4);
         background: rgb(246, 175, 4);
-        box-shadow: rgba(246, 175, 4, 0.2) 0px 0px 0px 12px;
+        box-shadow: rgba(246, 175, 4, 0) 0px 0px 0px 12px;
     }
     
     100% {
@@ -142,3 +142,20 @@
         box-shadow: rgba(246, 175, 4, 0) 0px 0px 0px 0px;
     }
 }
+
+
+@keyframes menuact {
+    from {
+      top: -150px;
+    }
+    to {
+      top: 0px;
+    }
+  }
+  
+  @layer utilities {
+    .animate-menuact {
+      animation: menuact 0.5s linear both;
+    }
+  }
+  

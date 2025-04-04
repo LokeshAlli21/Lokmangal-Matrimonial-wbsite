@@ -4,7 +4,7 @@ import Icons from "../icons/Icons";
 
 function TopHeadInfo() {
   return (
-    <div className="bg-gradient-to-r from-[#764508] to-[#403406]">
+    <div className=" hidden bg-gradient-to-r lg:block from-[#764508] to-[#403406]">
       <Container
         noBackground
         noPaddingY
